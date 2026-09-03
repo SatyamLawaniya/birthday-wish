@@ -96,23 +96,44 @@ export default function Slide({ photo, activeFilter, index, isActive, direction,
                 maxHeight: `${displayH}px`,
               }}
             >
-              <img
-                ref={imgRef}
-                className="base-layer"
-                src={photo.src}
-                alt={photo.caption || 'memory'}
-                draggable={false}
-                style={{ objectPosition: photo.objectPosition || 'center', objectFit: photo.objectFit || 'cover' }}
-              />
+              {/* responsive picture using generated WebP variants, fallback to original */}
+              {(() => {
+                const srcPath = (photo.src || '').replace(/^\//, '')
+                const baseName = srcPath.replace(/^photos\//, '').replace(/\.[^.]+$/, '')
+                const webp480 = `/photos/${baseName}-480.webp`
+                const webp768 = `/photos/${baseName}-768.webp`
+                const webp1024 = `/photos/${baseName}-1024.webp`
+                const webp1600 = `/photos/${baseName}-1600.webp`
+                const sizesAttr = `(max-width:600px) 480px, (max-width:1200px) 768px, 1024px`
+                return (
+                  <>
+                    <picture>
+                      <source type="image/webp" srcSet={`${webp480} 480w, ${webp768} 768w, ${webp1024} 1024w, ${webp1600} 1600w`} sizes={sizesAttr} />
+                      <img
+                        ref={imgRef}
+                        className="base-layer"
+                        src={photo.src}
+                        alt={photo.caption || 'memory'}
+                        draggable={false}
+                        loading={isActive ? 'eager' : 'lazy'}
+                        style={{ objectPosition: photo.objectPosition || 'center', objectFit: photo.objectFit || 'cover' }}
+                      />
+                    </picture>
 
-              {/* filtered layer at 50% opacity to reduce intensity */}
-              <img
-                className="filtered-layer"
-                src={photo.src}
-                alt={photo.caption || 'memory'}
-                style={{ filter: filter.value, opacity: 0.5, objectPosition: photo.objectPosition || 'center', objectFit: photo.objectFit || 'cover' }}
-                draggable={false}
-              />
+                    <picture>
+                      <source type="image/webp" srcSet={`${webp480} 480w, ${webp768} 768w, ${webp1024} 1024w, ${webp1600} 1600w`} sizes={sizesAttr} />
+                      <img
+                        className="filtered-layer"
+                        src={photo.src}
+                        alt={photo.caption || 'memory'}
+                        loading={isActive ? 'eager' : 'lazy'}
+                        style={{ filter: filter.value, opacity: 0.5, objectPosition: photo.objectPosition || 'center', objectFit: photo.objectFit || 'cover' }}
+                        draggable={false}
+                      />
+                    </picture>
+                  </>
+                )
+              })()}
 
               <div className="photo-overlay-glow" />
             </div>
