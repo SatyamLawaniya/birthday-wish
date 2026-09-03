@@ -102,6 +102,7 @@ export default function Slide({ photo, activeFilter, index, isActive, direction,
                 src={photo.src}
                 alt={photo.caption || 'memory'}
                 draggable={false}
+                style={{ objectPosition: photo.objectPosition || 'center', objectFit: photo.objectFit || 'cover' }}
               />
 
               {/* filtered layer at 50% opacity to reduce intensity */}
@@ -109,7 +110,7 @@ export default function Slide({ photo, activeFilter, index, isActive, direction,
                 className="filtered-layer"
                 src={photo.src}
                 alt={photo.caption || 'memory'}
-                style={{ filter: filter.value, opacity: 0.5 }}
+                style={{ filter: filter.value, opacity: 0.5, objectPosition: photo.objectPosition || 'center', objectFit: photo.objectFit || 'cover' }}
                 draggable={false}
               />
 

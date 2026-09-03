@@ -17,8 +17,9 @@ const PHOTOS = [
   { src: '/photos/photo7.jpg',  caption: 'chhabdi 7'  },
   { src: '/photos/photo8.jpg',  caption: 'chhabdi 8'  },
   { src: '/photos/photo9.jpg',  caption: 'chhabdi 9'  },
-  { src: '/photos/photo10.jpg', caption: 'chhabdi 10' },
+  { src: '/photos/photo10.jpg', caption: 'chhabdi 10', objectPosition: 'top' },
 ]
+
 
 const FILTERS = [
   { name: 'Peach',     value: 'sepia(0.48) hue-rotate(320deg) saturate(1.68) brightness(1.296) contrast(1.14)' },
