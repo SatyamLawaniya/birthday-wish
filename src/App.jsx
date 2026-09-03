@@ -40,7 +40,7 @@ const WISH_LINES = [
 const NAME = 'Chhabdi'
 
 const WISH_LINE_INTERVAL = 3500
-const SLIDE_INTERVAL = 3000 // slideshow interval set to 3s per user request
+const SLIDE_INTERVAL = 3000 + 3000 // increased by 3s per request (total 6s)
 const FILTER_INTERVAL = 12000
 
 export default function App() {
