@@ -40,7 +40,7 @@ const WISH_LINES = [
 const NAME = 'Chhabdi'
 
 const WISH_LINE_INTERVAL = 3500
-const SLIDE_INTERVAL = 3800
+const SLIDE_INTERVAL = 3800 + 1500 // increased by 1.5s to allow images to load
 const FILTER_INTERVAL = 12000
 
 export default function App() {
