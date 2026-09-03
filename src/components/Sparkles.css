@@ -1,0 +1,17 @@
+.sparkle-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  color: #fff;
+  text-shadow:
+    0 0 8px #ffb3d1,
+    0 0 16px #ffb3d1,
+    0 0 24px #ffd6e7;
+  user-select: none;
+}

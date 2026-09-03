@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #ffe4ec 0%, #e7d9ff 50%, #d4f0ff 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #5b4a6b;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #ffe4ec;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffb3d1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff8fb8;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}

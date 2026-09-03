@@ -1,0 +1,102 @@
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 2;
+}
+
+.photo-frame {
+  position: relative;
+  padding: 10px;
+  background: linear-gradient(135deg, #fff 0%, #fff5fa 100%);
+  border-radius: 22px;
+  box-shadow:
+    0 14px 40px rgba(255, 182, 213, 0.45),
+    0 0 0 4px #fff,
+    0 0 0 8px #ffb3d1,
+    0 0 0 10px #fff;
+  transform-style: preserve-3d;
+  flex-shrink: 0;
+}
+
+.photo-frame::before {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  border-radius: 30px;
+  background: conic-gradient(
+    from 0deg,
+    #ffb3d1,
+    #c5a3ff,
+    #a3d8ff,
+    #b3f0d1,
+    #ffd6a3,
+    #ffb3d1
+  );
+  z-index: -1;
+  filter: blur(9px);
+  opacity: 0.25;
+  animation: spinGlow 8s linear infinite;
+}
+
+@keyframes spinGlow {
+  to { transform: rotate(360deg); }
+}
+
+.photo-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #ffe4ec;
+  border-radius: 14px;
+}
+
+.photo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  display: block;
+}
+
+.photo-inner .base-layer {
+  position: relative;
+  z-index: 1;
+}
+
+.photo-inner .filtered-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.photo-overlay-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.35) 0%, transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(255,182,213,0.25) 0%, transparent 50%);
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.frame-decor {
+  position: absolute;
+  font-size: 14px;
+  color: #ff8fb8;
+  filter: drop-shadow(0 1px 2px rgba(255, 182, 213, 0.3));
+  pointer-events: none;
+  user-select: none;
+}
+
+.top-left { top: 4px; left: 6px; }
+.bottom-right { bottom: 4px; right: 6px; }
+.top-right { top: 4px; right: 6px; }
+.bottom-left { bottom: 4px; left: 6px; }

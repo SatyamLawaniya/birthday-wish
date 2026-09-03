@@ -1,0 +1,125 @@
+.wish-text {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 22px 20px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 26px;
+  box-shadow:
+    0 14px 40px rgba(255, 182, 213, 0.2),
+    inset 0 0 24px rgba(255, 255, 255, 0.45);
+  max-width: 480px;
+  width: min(480px, 92vw);
+  overflow: hidden;
+}
+
+.wish-text::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 34px;
+  background: linear-gradient(135deg, #ffb3d1, #c5a3ff, #a3d8ff, #b3f0d1, #ffb3d1);
+  background-size: 300% 300%;
+  z-index: -1;
+  animation: borderShift 8s linear infinite;
+  filter: blur(4px);
+  opacity: 0.55;
+}
+
+@keyframes borderShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.wish-cake {
+  font-size: 52px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 6px 12px rgba(255, 182, 213, 0.3));
+  display: inline-block;
+}
+
+/* mini-frame removed from wish box; main frame now lives above the wish area */
+
+.wish-title {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(1.9rem, 6vw, 2.7rem);
+  line-height: 1.15;
+  margin-bottom: 14px;
+  color: #d44a8c;
+  text-shadow:
+    0 2px 0 #fff,
+    0 4px 18px rgba(255, 105, 180, 0.4);
+}
+
+.wish-hbd {
+  display: inline-block;
+}
+
+.wish-name {
+  background: linear-gradient(90deg, #ff6fa8, #b58bff, #6fb5ff, #ff6fa8);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: 300% center; }
+}
+
+.title-hearts {
+  margin-top: 4px;
+  font-size: 18px;
+  letter-spacing: 8px;
+}
+
+.wish-rotator {
+  position: relative;
+  min-height: 70px;
+  margin: 8px 0 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wish-msg {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.15rem, 3.8vw, 1.5rem);
+  color: #7a5a8a;
+  line-height: 1.4;
+  text-shadow: 0 1px 0 #fff;
+  padding: 0 8px;
+}
+
+.wish-dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.wish-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 182, 213, 0.5);
+  transition: all 0.4s ease;
+}
+
+.wish-dot-on {
+  background: #ff8fb8;
+  transform: scale(1.4);
+  box-shadow: 0 0 8px #ffb3d1;
+}
+
+.wish-hearts {
+  font-size: 26px;
+  margin-top: 8px;
+  letter-spacing: 8px;
+  filter: drop-shadow(0 2px 4px rgba(255, 182, 213, 0.25));
+}
